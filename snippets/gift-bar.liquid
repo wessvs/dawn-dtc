@@ -1,0 +1,42 @@
+{%- assign progress_percentual = cart.total_price | divided_by: settings.gift_bar_min_value -%}
+
+{% style %}  
+  .gift-bar__container .gift-bar {
+    background-color: {{ settings.gift_bar_background }};
+  }
+
+  .gift-bar .gift-bar__progress {
+    background-color: {{ settings.gift_bar_progress_color }};
+    width:{%- if progress_percentual > 100 -%} 100% {%-else -%} {{ progress_percentual | append: '%' }}{%- endif -%};
+  }
+
+  {% if progress_percentual >= 100 %}
+    .gift-bar .gift-bar__progress,
+    .gift-bar .gift-bar__icon {
+      background-color: {{ settings.gift_bar_reached_color }};
+    }
+  {% endif %}
+{% endstyle %}
+
+<div class="gift-bar__container">
+  <div class="gift-bar__text">
+    {%- if progress_percentual >= 100 -%}
+      <strong>{{ settings.gift_reached_text }}</strong>
+    {%-else -%}
+      {%- assign gift_bar_min_value = settings.gift_bar_min_value | times: 100 -%}
+      {%- assign gift_bar_min_value_money = gift_bar_min_value | money -%}
+      {%- assign rest = gift_bar_min_value | minus: cart.total_price | money -%}
+      <span>{{ settings.gift_bar_text | replace: '[amount]', rest | replace: '[total_amount]', gift_bar_min_value_money  }}</span>
+    {%- endif -%}
+  </div>
+  <div class="gift-bar">
+    <div class="gift-bar__progress" >
+    </div>
+    {% if settings.show_gift_icon != blank %}
+      <span class="gift-bar__icon"> 
+        {{- 'icon-cart.svg' | inline_asset_content -}}
+      </span>
+    {% endif %}
+  </div>
+  <div class="gift-bar__gift-title">Free Shipping</div>
+</div>

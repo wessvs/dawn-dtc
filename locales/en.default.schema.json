@@ -335,6 +335,36 @@
           "collection": {
             "label": "Collection",
             "info": "Shown when cart drawer is empty"
+          },
+          "header__1": {
+            "content": "Free Gift Bar"
+          },
+          "show_gift_bar": {
+            "label": "Show free gift bar on cart page"
+          },
+          "show_gift_icon": {
+            "label": "Show icon?"
+          },
+          "gift_bar_min_value": {
+            "label": "Minimum value for free shipping"
+          },
+          "gift_bar_text": {
+            "label": "Free shipping text",
+           "default": "You're [amount] away from free shipping",
+            "info": "Use [amount] to display the value left, or [total_amount] to display the gift min value."
+          },
+          "gift_bar_progress_color": {
+            "label": "Free shipping progress color"
+          },
+          "gift_bar_background":{
+            "label": "Free shipping background color",
+          },
+          "gift_reached_text": {
+            "label": "Free shipping text achieved",
+            "default": "You received free shipping!"
+          },
+          "gift_bar_reached_color": {
+            "label": "Free shipping color achieved"
           }
         }
       }

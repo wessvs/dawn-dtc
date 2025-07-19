@@ -1449,6 +1449,59 @@
         "id": "cart_color_scheme",
         "label": "t:sections.all.colors.label",
         "default": "scheme-1"
+      },
+      {
+        "type": "header",
+        "content": "t:settings_schema.cart.settings.cart_drawer.header__1.content"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_gift_bar",
+        "label": "t:settings_schema.cart.settings.cart_drawer.show_gift_bar.label",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_gift_icon",
+        "default": true,
+        "label": "t:settings_schema.cart.settings.cart_drawer.show_gift_icon.label"
+      },
+      {
+        "type": "text",
+        "id": "gift_bar_min_value",
+        "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_min_value.label",
+        "default": "200"
+      },
+      {
+        "type": "text",
+        "id": "gift_bar_text",
+        "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_text.label",
+        "default": "t:settings_schema.cart.settings.cart_drawer.gift_bar_text.label",
+        "info": "t:settings_schema.cart.settings.cart_drawer.gift_bar_text.label"
+      },
+      {
+        "type": "color",
+        "id": "gift_bar_progress_color",
+        "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_progress_color.label",
+        "default": "#29A624"
+      },
+      {
+        "type": "color",
+        "id": "gift_bar_background",
+        "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_background.label",
+        "default": "#EFEFEF"
+      },
+      {
+        "type": "text",
+        "id": "gift_reached_text",
+        "label": "t:settings_schema.cart.settings.cart_drawer.gift_reached_text.label",
+        "default": "t:settings_schema.cart.settings.cart_drawer.gift_reached_text.default"
+      },
+      {
+        "type": "color",
+        "id": "gift_bar_reached_color",
+        "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_reached_color.label",
+        "default": "#ffe802"
       }
     ]
   }
