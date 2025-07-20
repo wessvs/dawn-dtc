@@ -1,24 +1,47 @@
 {%- liquid
   assign prize_1 = settings.gift_bar_min_value_1 | times: 100
-  assign prize_2 = settings.gift_bar_min_value_2 | times: 100  
-  assign prize_3 = settings.gift_bar_min_value_3 | times: 100
+  assign has_prize_2 = false
+  assign has_prize_3 = false
+  
+  if settings.gift_bar_min_value_2 > 0
+    assign prize_2 = settings.gift_bar_min_value_2 | times: 100
+    assign has_prize_2 = true
+  endif
+  
+  if settings.gift_bar_min_value_3 > 0
+    assign prize_3 = settings.gift_bar_min_value_3 | times: 100
+    assign has_prize_3 = true
+  endif
+  
   assign current_target = prize_1
   assign current_color = settings.gift_bar_color_1
   assign current_title = settings.gift_bar_title_1
+  assign is_completed = false
   
-  if cart.total_price >= prize_1 and cart.total_price < prize_2
+  if has_prize_2 and cart.total_price >= prize_1 and cart.total_price < prize_2
     assign current_target = prize_2
     assign current_color = settings.gift_bar_color_2
     assign current_title = settings.gift_bar_title_2
 
-  elsif cart.total_price >= prize_2 and cart.total_price < prize_3
+  elsif has_prize_3 and cart.total_price >= prize_2 and cart.total_price < prize_3
     assign current_target = prize_3
     assign current_color = settings.gift_bar_color_3
     assign current_title = settings.gift_bar_title_3
 
-  elsif cart.total_price >= prize_3
+  elsif has_prize_3 and cart.total_price >= prize_3
     assign current_target = prize_3
     assign current_color = settings.gift_bar_completed_color
+    assign is_completed = true
+
+  elsif has_prize_2 and has_prize_3 == false and cart.total_price >= prize_2
+    assign current_target = prize_2
+    assign current_color = settings.gift_bar_completed_color
+    assign is_completed = true
+    
+  elsif has_prize_2 == false and cart.total_price >= prize_1
+    assign current_target = prize_1
+    assign current_color = settings.gift_bar_completed_color
+    assign is_completed = true
   endif
   
   assign progress_percent = cart.total_price | times: 100 | divided_by: current_target
@@ -47,7 +70,7 @@
 
 <div class="gift-bar__container">
       <div class="gift-bar__text">
-      {%- if cart.total_price >= prize_3 -%}
+      {%- if is_completed -%}
         <strong>Congratulations! You've unlocked all prizes! 🎉</strong>
       {%- else -%}
         You're <strong>{{ remaining | money }}</strong> away from earning <strong>{{ current_title }}</strong>
@@ -59,7 +82,7 @@
   </div>
   
   <div class="gift-bar__gift-title">
-    {%- unless cart.total_price >= prize_3 -%}
+    {%- unless is_completed -%}
       {{ current_title }}
     {%- endunless -%}
   </div>

@@ -337,24 +337,13 @@
             "info": "Shown when cart drawer is empty"
           },
           "header__1": {
-            "content": "Free Gift Bar"
+            "content": "Gift Bar"
           },
           "show_gift_bar": {
-            "label": "Show free gift bar on cart page"
-          },
-          "gift_bar_min_value": {
-            "label": "Minimum value for free shipping"
-          },
-          "gift_bar_text": {
-            "label": "Free shipping text",
-           "default": "You're [amount] away from free shipping",
-            "info": "Use [amount] to display the value left, or [total_amount] to display the gift min value."
-          },
-          "gift_bar_progress_color": {
-            "label": "Free shipping progress color"
+            "label": "Show gift bar on cart drawer"
           },
           "gift_bar_background":{
-            "label": "Free shipping background color"
+            "label": "Gift bar background color"
           },
           "header__2": {
             "content": "Prize Settings"
@@ -390,11 +379,11 @@
             "label": "Bar color when all prizes are achieved"
           },
           "gift_reached_text": {
-            "label": "Free shipping text achieved",
-            "default": "You received free shipping!"
+            "label": "Gift Bar text achieved",
+            "default": "You received Gift Bar!"
           },
           "gift_bar_reached_color": {
-            "label": "Free shipping color achieved"
+            "label": "Gift Bar color achieved"
           }
         }
       }
