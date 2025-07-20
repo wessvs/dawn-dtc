@@ -1,0 +1,44 @@
+.gift-bar__container {
+  margin-block: 2rem;
+}
+
+.gift-bar {
+  position: relative;
+  width: 100%;
+  padding: .5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: .8rem;
+}
+
+.gift-bar__progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1;
+  border-radius: 1rem;
+  transition: all .5s ease-in-out;
+}
+
+.gift-bar__text {
+  display: block;
+  font-size: 1.4rem;
+  color: rgb(var(--color-foreground));
+  margin-bottom: 1rem;
+  text-align: center;
+  transition: all .3s ease-in-out;
+  min-height: 2rem;
+}
+
+.gift-bar__gift-title {
+  text-align: right;
+  font-size: 1.2rem;
+  color: rgba(var(--color-foreground), 0.8);
+  line-height: 1.3rem;
+  transition: all .3s ease-in-out;
+  font-weight: 500;
+  min-height: 1.3rem;
+}

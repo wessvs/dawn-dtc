@@ -360,31 +360,31 @@
             "content": "Prize Settings"
           },
           "gift_bar_min_value_1": {
-            "label": "Minimum value - Prize 1"
+            "label": "Prize Minimum value"
           },
           "gift_bar_title_1": {
-            "label": "Prize 1 name"
+            "label": "Prize name"
           },
           "gift_bar_color_1": {
-            "label": "Progress color - Prize 1"
+            "label": "Progress color"
           },
           "gift_bar_min_value_2": {
-            "label": "Minimum value - Prize 2"
+            "label": "2nd Prize Minimum value"
           },
           "gift_bar_title_2": {
-            "label": "Prize 2 name"
+            "label": "2nd Prize name"
           },
           "gift_bar_color_2": {
-            "label": "Progress color - Prize 2"
+            "label": "2nd Prize Progress color"
           },
           "gift_bar_min_value_3": {
-            "label": "Minimum value - Prize 3"
+            "label": "3rd Prize Minimum value"
           },
           "gift_bar_title_3": {
-            "label": "Prize 3 name"
+            "label": "3rd Prize name"
           },
           "gift_bar_color_3": {
-            "label": "Progress color - Prize 3"
+            "label": "3rd Progress color"
           },
           "gift_bar_completed_color": {
             "label": "Bar color when all prizes are achieved"

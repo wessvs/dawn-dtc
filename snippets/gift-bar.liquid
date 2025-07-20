@@ -20,7 +20,6 @@
   elsif cart.total_price >= prize_3
     assign current_target = prize_3
     assign current_color = settings.gift_bar_completed_color
-    assign current_title = "Todos os prêmios"
   endif
   
   assign progress_percent = cart.total_price | times: 100 | divided_by: current_target
