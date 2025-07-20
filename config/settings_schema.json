@@ -1464,71 +1464,83 @@
         "type": "color",
         "id": "gift_bar_background",
         "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_background.label",
-        "default": "#EFEFEF"
+        "default": "#EFEFEF",
+        "visible_if": "{{ settings.show_gift_bar }}"
       },
       {
         "type": "header",
-        "content": "t:settings_schema.cart.settings.cart_drawer.header__2.content"
+        "content": "t:settings_schema.cart.settings.cart_drawer.header__2.content",
+        "visible_if": "{{ settings.show_gift_bar }}"
       },
       {
         "type": "number",
         "id": "gift_bar_min_value_1",
         "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_min_value_1.label",
-        "default": 200
+        "default": 200,
+        "visible_if": "{{ settings.show_gift_bar }}"
       },
       {
         "type": "text",
         "id": "gift_bar_title_1",
         "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_title_1.label",
-        "default": "Free Shipping"
+        "default": "Free Shipping",
+        "visible_if": "{{ settings.show_gift_bar }}"
       },
       {
         "type": "color",
         "id": "gift_bar_color_1",
         "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_color_1.label",
-        "default": "#29A624"
+        "default": "#29A624",
+        "visible_if": "{{ settings.show_gift_bar }}"
       },
       {
         "type": "number",
         "id": "gift_bar_min_value_2",
         "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_min_value_2.label",
-        "default": 400
+        "default": 400,
+        "visible_if": "{{ settings.gift_bar_title_1 != blank }}"
       },
       {
         "type": "text",
         "id": "gift_bar_title_2",
         "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_title_2.label",
-        "default": "Special Discount"
+        "default": "Special Discount",
+        "visible_if": "{{ settings.gift_bar_title_1 != blank }}"
       },
       {
         "type": "color",
         "id": "gift_bar_color_2",
         "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_color_2.label",
-        "default": "#FFB800"
+        "default": "#FFB800",
+        "visible_if": "{{ settings.gift_bar_title_1 != blank }}"
       },
       {
         "type": "number",
         "id": "gift_bar_min_value_3",
         "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_min_value_3.label",
-        "default": 600
+        "default": 600,
+        "visible_if": "{{ settings.gift_bar_title_2 != blank }}"
       },
       {
         "type": "text",
         "id": "gift_bar_title_3",
         "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_title_3.label",
-        "default": "Exclusive gift"
+        "default": "Exclusive gift",
+        "visible_if": "{{ settings.gift_bar_title_2 != blank }}"
       },
       {
         "type": "color",
         "id": "gift_bar_color_3",
         "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_color_3.label",
-        "default": "#8B5CF6"
+        "default": "#8B5CF6",
+        "visible_if": "{{ settings.gift_bar_title_2 != blank }}"
       },
       {
         "type": "color",
         "id": "gift_bar_completed_color",
         "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_completed_color.label",
-        "default": "#FFD700"
+        "default": "#FFD700",
+        "visible_if": "{{ settings.gift_bar_title_3 != blank }}"
       }
     ]
   }
