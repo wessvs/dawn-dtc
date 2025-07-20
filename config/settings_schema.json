@@ -1467,41 +1467,74 @@
         "label": "t:settings_schema.cart.settings.cart_drawer.show_gift_icon.label"
       },
       {
-        "type": "text",
-        "id": "gift_bar_min_value",
-        "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_min_value.label",
-        "default": "200"
-      },
-      {
-        "type": "text",
-        "id": "gift_bar_text",
-        "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_text.label",
-        "default": "t:settings_schema.cart.settings.cart_drawer.gift_bar_text.label",
-        "info": "t:settings_schema.cart.settings.cart_drawer.gift_bar_text.label"
-      },
-      {
-        "type": "color",
-        "id": "gift_bar_progress_color",
-        "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_progress_color.label",
-        "default": "#29A624"
-      },
-      {
         "type": "color",
         "id": "gift_bar_background",
-        "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_background.label",
+        "label": "Cor de fundo da barra",
         "default": "#EFEFEF"
       },
       {
+        "type": "header",
+        "content": "Configurações dos Prêmios"
+      },
+      {
+        "type": "number",
+        "id": "gift_bar_min_value_1",
+        "label": "Valor mínimo - Prêmio 1",
+        "default": 200
+      },
+      {
         "type": "text",
-        "id": "gift_reached_text",
-        "label": "t:settings_schema.cart.settings.cart_drawer.gift_reached_text.label",
-        "default": "t:settings_schema.cart.settings.cart_drawer.gift_reached_text.default"
+        "id": "gift_bar_title_1",
+        "label": "Nome do Prêmio 1",
+        "default": "Frete Grátis"
       },
       {
         "type": "color",
-        "id": "gift_bar_reached_color",
-        "label": "t:settings_schema.cart.settings.cart_drawer.gift_bar_reached_color.label",
-        "default": "#ffe802"
+        "id": "gift_bar_color_1",
+        "label": "Cor do progresso - Prêmio 1",
+        "default": "#29A624"
+      },
+      {
+        "type": "number",
+        "id": "gift_bar_min_value_2",
+        "label": "Valor mínimo - Prêmio 2",
+        "default": 400
+      },
+      {
+        "type": "text",
+        "id": "gift_bar_title_2",
+        "label": "Nome do Prêmio 2",
+        "default": "Desconto Especial"
+      },
+      {
+        "type": "color",
+        "id": "gift_bar_color_2",
+        "label": "Cor do progresso - Prêmio 2",
+        "default": "#FFB800"
+      },
+      {
+        "type": "number",
+        "id": "gift_bar_min_value_3",
+        "label": "Valor mínimo - Prêmio 3",
+        "default": 600
+      },
+      {
+        "type": "text",
+        "id": "gift_bar_title_3",
+        "label": "Nome do Prêmio 3",
+        "default": "Brinde Exclusivo"
+      },
+      {
+        "type": "color",
+        "id": "gift_bar_color_3",
+        "label": "Cor do progresso - Prêmio 3",
+        "default": "#8B5CF6"
+      },
+      {
+        "type": "color",
+        "id": "gift_bar_completed_color",
+        "label": "Cor da barra quando todos os prêmios são alcançados",
+        "default": "#FFD700"
       }
     ]
   }

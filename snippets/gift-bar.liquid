@@ -1,42 +1,90 @@
-{%- assign progress_percentual = cart.total_price | divided_by: settings.gift_bar_min_value -%}
+{%- liquid
+  assign prize_1 = settings.gift_bar_min_value_1 | times: 100
+  assign prize_2 = settings.gift_bar_min_value_2 | times: 100  
+  assign prize_3 = settings.gift_bar_min_value_3 | times: 100
+  
+  assign current_target = prize_1
+  assign current_color = settings.gift_bar_color_1
+  assign current_title = settings.gift_bar_title_1
+  assign next_title = settings.gift_bar_title_2
+  assign prize_reached = false
+  
+  if cart.total_price >= prize_1 and cart.total_price < prize_2
+    assign current_target = prize_2
+    assign current_color = settings.gift_bar_color_2
+    assign current_title = settings.gift_bar_title_2
+    assign next_title = settings.gift_bar_title_3
+    assign prize_reached = true
+
+  elsif cart.total_price >= prize_2 and cart.total_price < prize_3
+    assign current_target = prize_3
+    assign current_color = settings.gift_bar_color_3
+    assign current_title = settings.gift_bar_title_3
+    assign next_title = ""
+    assign prize_reached = true
+
+  elsif cart.total_price >= prize_3
+    assign current_target = prize_3
+    assign current_color = settings.gift_bar_completed_color
+    assign current_title = "Todos os prêmios"
+    assign next_title = ""
+    assign prize_reached = true
+  endif
+  
+  assign progress_percent = cart.total_price | times: 100 | divided_by: current_target
+  if progress_percent > 100
+    assign progress_percent = 100
+  endif
+  
+  assign remaining = current_target | minus: cart.total_price
+-%}
 
 {% style %}  
   .gift-bar__container .gift-bar {
     background-color: {{ settings.gift_bar_background }};
   }
 
-  .gift-bar .gift-bar__progress {
-    background-color: {{ settings.gift_bar_progress_color }};
-    width:{%- if progress_percentual > 100 -%} 100% {%-else -%} {{ progress_percentual | append: '%' }}{%- endif -%};
+  .gift-bar__container .gift-bar .gift-bar__progress {
+    background-color: {{ current_color }};
+    width: {{ progress_percent | append: '%' }};
+    display: block;
   }
 
-  {% if progress_percentual >= 100 %}
-    .gift-bar .gift-bar__progress,
-    .gift-bar .gift-bar__icon {
-      background-color: {{ settings.gift_bar_reached_color }};
-    }
-  {% endif %}
+  .gift-bar__container .gift-bar .gift-bar__icon {
+    background-color: {{ current_color }};
+  }
 {% endstyle %}
 
 <div class="gift-bar__container">
   <div class="gift-bar__text">
-    {%- if progress_percentual >= 100 -%}
-      <strong>{{ settings.gift_reached_text }}</strong>
-    {%-else -%}
-      {%- assign gift_bar_min_value = settings.gift_bar_min_value | times: 100 -%}
-      {%- assign gift_bar_min_value_money = gift_bar_min_value | money -%}
-      {%- assign rest = gift_bar_min_value | minus: cart.total_price | money -%}
-      <span>{{ settings.gift_bar_text | replace: '[amount]', rest | replace: '[total_amount]', gift_bar_min_value_money  }}</span>
+    {%- if cart.total_price >= prize_3 -%}
+      <strong>🎉 Parabéns! Você desbloqueou todos os prêmios!</strong>
+    {%- elsif prize_reached and progress_percent >= 100 -%}
+      <strong>✅ {{ current_title }} desbloqueado! 
+      {%- if next_title != "" -%}
+        Faltam {{ remaining | money }} para {{ next_title }}
+      {%- endif -%}</strong>
+    {%- else -%}
+      Faltam <strong>{{ remaining | money }}</strong> para ganhar <strong>{{ current_title }}</strong>
     {%- endif -%}
   </div>
+  
   <div class="gift-bar">
-    <div class="gift-bar__progress" >
-    </div>
+    <div class="gift-bar__progress"></div>
     {% if settings.show_gift_icon != blank %}
       <span class="gift-bar__icon"> 
         {{- 'icon-cart.svg' | inline_asset_content -}}
       </span>
     {% endif %}
   </div>
-  <div class="gift-bar__gift-title">Free Shipping</div>
+  
+  <div class="gift-bar__gift-title">
+    {%- if cart.total_price >= prize_3 -%}
+      Todos os prêmios alcançados! 🏆
+    {%- elsif next_title != "" and progress_percent >= 100 -%}
+      Próximo: {{ next_title }}
+    {%- else -%}
+      {{ current_title }}
+    {%- endif -%}
+  </div>
 </div>

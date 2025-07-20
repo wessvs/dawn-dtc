@@ -617,8 +617,8 @@
   height: 100%;
   z-index: 1;
   border-radius: 1rem;
-  background-color: rgb(var(--color-button));
   transition: all .5s ease-in-out;
+  display: block;
 }
 
 .gift-bar__text {
@@ -627,6 +627,8 @@
   color: rgb(var(--color-foreground));
   margin-bottom: 1rem;
   text-align: center;
+  transition: all .3s ease-in-out;
+  min-height: 2rem;
 }
 
 .gift-bar__icon {
@@ -643,6 +645,7 @@
   border: 1px solid rgba(var(--color-foreground), 0.2);
   background-color: rgb(var(--color-background));
   z-index: 2;
+  transition: all .5s ease-in-out;
 }
 
 .gift-bar__icon svg {
@@ -656,4 +659,7 @@
   font-size: 1.2rem;
   color: rgba(var(--color-foreground), 0.8);
   line-height: 1.3rem;
+  transition: all .3s ease-in-out;
+  font-weight: 500;
+  min-height: 1.3rem;
 }
