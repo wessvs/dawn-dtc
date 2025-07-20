@@ -2,7 +2,6 @@
   assign prize_1 = settings.gift_bar_min_value_1 | times: 100
   assign prize_2 = settings.gift_bar_min_value_2 | times: 100  
   assign prize_3 = settings.gift_bar_min_value_3 | times: 100
-  
   assign current_target = prize_1
   assign current_color = settings.gift_bar_color_1
   assign current_title = settings.gift_bar_title_1
@@ -47,13 +46,13 @@
 {% endstyle %}
 
 <div class="gift-bar__container">
-  <div class="gift-bar__text">
-    {%- if cart.total_price >= prize_3 -%}
-      <strong>🎉 Parabéns! Você desbloqueou todos os prêmios!</strong>
-    {%- else -%}
-      Faltam <strong>{{ remaining | money }}</strong> para ganhar <strong>{{ current_title }}</strong>
-    {%- endif -%}
-  </div>
+      <div class="gift-bar__text">
+      {%- if cart.total_price >= prize_3 -%}
+        <strong>Congratulations! You've unlocked all prizes! 🎉</strong>
+      {%- else -%}
+        You're <strong>{{ remaining | money }}</strong> away from earning <strong>{{ current_title }}</strong>
+      {%- endif -%}
+    </div>
   
   <div class="gift-bar">
     <div class="gift-bar__progress"></div>
