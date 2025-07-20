@@ -6,29 +6,21 @@
   assign current_target = prize_1
   assign current_color = settings.gift_bar_color_1
   assign current_title = settings.gift_bar_title_1
-  assign next_title = settings.gift_bar_title_2
-  assign prize_reached = false
   
   if cart.total_price >= prize_1 and cart.total_price < prize_2
     assign current_target = prize_2
     assign current_color = settings.gift_bar_color_2
     assign current_title = settings.gift_bar_title_2
-    assign next_title = settings.gift_bar_title_3
-    assign prize_reached = true
 
   elsif cart.total_price >= prize_2 and cart.total_price < prize_3
     assign current_target = prize_3
     assign current_color = settings.gift_bar_color_3
     assign current_title = settings.gift_bar_title_3
-    assign next_title = ""
-    assign prize_reached = true
 
   elsif cart.total_price >= prize_3
     assign current_target = prize_3
     assign current_color = settings.gift_bar_completed_color
     assign current_title = "Todos os prêmios"
-    assign next_title = ""
-    assign prize_reached = true
   endif
   
   assign progress_percent = cart.total_price | times: 100 | divided_by: current_target
@@ -59,11 +51,6 @@
   <div class="gift-bar__text">
     {%- if cart.total_price >= prize_3 -%}
       <strong>🎉 Parabéns! Você desbloqueou todos os prêmios!</strong>
-    {%- elsif prize_reached and progress_percent >= 100 -%}
-      <strong>✅ {{ current_title }} desbloqueado! 
-      {%- if next_title != "" -%}
-        Faltam {{ remaining | money }} para {{ next_title }}
-      {%- endif -%}</strong>
     {%- else -%}
       Faltam <strong>{{ remaining | money }}</strong> para ganhar <strong>{{ current_title }}</strong>
     {%- endif -%}
@@ -71,20 +58,11 @@
   
   <div class="gift-bar">
     <div class="gift-bar__progress"></div>
-    {% if settings.show_gift_icon != blank %}
-      <span class="gift-bar__icon"> 
-        {{- 'icon-cart.svg' | inline_asset_content -}}
-      </span>
-    {% endif %}
   </div>
   
   <div class="gift-bar__gift-title">
-    {%- if cart.total_price >= prize_3 -%}
-      Todos os prêmios alcançados! 🏆
-    {%- elsif next_title != "" and progress_percent >= 100 -%}
-      Próximo: {{ next_title }}
-    {%- else -%}
+    {%- unless cart.total_price >= prize_3 -%}
       {{ current_title }}
-    {%- endif -%}
+    {%- endunless -%}
   </div>
 </div>

@@ -342,9 +342,6 @@
           "show_gift_bar": {
             "label": "Show free gift bar on cart page"
           },
-          "show_gift_icon": {
-            "label": "Show icon?"
-          },
           "gift_bar_min_value": {
             "label": "Minimum value for free shipping"
           },
@@ -357,7 +354,40 @@
             "label": "Free shipping progress color"
           },
           "gift_bar_background":{
-            "label": "Free shipping background color",
+            "label": "Free shipping background color"
+          },
+          "header__2": {
+            "content": "Prize Settings"
+          },
+          "gift_bar_min_value_1": {
+            "label": "Minimum value - Prize 1"
+          },
+          "gift_bar_title_1": {
+            "label": "Prize 1 name"
+          },
+          "gift_bar_color_1": {
+            "label": "Progress color - Prize 1"
+          },
+          "gift_bar_min_value_2": {
+            "label": "Minimum value - Prize 2"
+          },
+          "gift_bar_title_2": {
+            "label": "Prize 2 name"
+          },
+          "gift_bar_color_2": {
+            "label": "Progress color - Prize 2"
+          },
+          "gift_bar_min_value_3": {
+            "label": "Minimum value - Prize 3"
+          },
+          "gift_bar_title_3": {
+            "label": "Prize 3 name"
+          },
+          "gift_bar_color_3": {
+            "label": "Progress color - Prize 3"
+          },
+          "gift_bar_completed_color": {
+            "label": "Bar color when all prizes are achieved"
           },
           "gift_reached_text": {
             "label": "Free shipping text achieved",
