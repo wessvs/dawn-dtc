@@ -33,12 +33,32 @@
   min-height: 2rem;
 }
 
-.gift-bar__gift-title {
-  text-align: right;
+.gift-bar__prizes {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+.gift-bar__prize-name {
   font-size: 1.2rem;
-  color: rgba(var(--color-foreground), 0.8);
-  line-height: 1.3rem;
-  transition: all .3s ease-in-out;
-  font-weight: 500;
-  min-height: 1.3rem;
+  font-weight: 700;
+  color: rgba(var(--color-foreground), 0.5);
+  transition: color .3s;
+  padding: 0.2rem 0.8rem;
+  border-radius: 0.5rem;
+}
+
+.gift-bar__prizes:has(.gift-bar__prize-name:only-child)  {
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 749px) {
+  .gift-bar__prize-name,
+  .gift-bar__gift-title {
+    font-size: 1rem;
+  }
+
+  .gift-bar__text {
+    font-size: 1.3rem;
+  }
 }

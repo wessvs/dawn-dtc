@@ -81,9 +81,24 @@
     <div class="gift-bar__progress"></div>
   </div>
   
-  <div class="gift-bar__gift-title">
-    {%- unless is_completed -%}
-      {{ current_title }}
-    {%- endunless -%}
+  <div class="gift-bar__prizes">
+    <span class="gift-bar__prize-name"
+      style="{% if cart.total_price >= prize_1 %}color: green;{% endif %}">
+      {{ settings.gift_bar_title_1 }}
+    </span>
+
+    {%- if has_prize_2 -%}
+      <span class="gift-bar__prize-name"
+        style="{% if cart.total_price >= prize_2 %}color: green;{% endif %}">
+        {{ settings.gift_bar_title_2 }}
+      </span>
+    {%- endif -%}
+
+    {%- if has_prize_3 -%}
+      <span class="gift-bar__prize-name"
+        style="{% if cart.total_price >= prize_3 %}color: green;{% endif %}">
+        {{ settings.gift_bar_title_3 }}
+      </span>
+    {%- endif -%}
   </div>
 </div>
