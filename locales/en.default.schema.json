@@ -342,7 +342,7 @@
           "show_gift_bar": {
             "label": "Show gift bar on cart drawer"
           },
-          "gift_bar_background":{
+          "gift_bar_background": {
             "label": "Gift bar background color"
           },
           "header__2": {
